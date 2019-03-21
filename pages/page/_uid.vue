@@ -1,23 +1,10 @@
 <template>
-  <section class="homepage">
+  <section class="page">
     <!-- Vue tag to add header component -->
     <header-prismic :menuLinks="menuLinks"/>
-    <!-- Button to edit document in dashboard -->
-    <prismic-edit-button :documentId="documentId"/>
-    <section class="homepage-banner" :style="{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' + image + ')' }">
-      <!-- Template for page title. -->
-      <div class="banner-content container">
-        <h2 class="banner-title">
-          {{ $prismic.richTextAsPlain(title) }}
-        </h2>
-        <!-- Template for page tagline. -->
-        <p class="banner-description">{{ $prismic.richTextAsPlain(tagline) }}</p>
-        <prismic-link class="banner-button" :field="button_link">
-          {{ $prismic.richTextAsPlain(button_label) }}
-        </prismic-link>
-      </div>
-    </section>
     <div class="container">
+      <!-- Button to edit document in dashboard -->
+      <prismic-edit-button :documentId="documentId"/>
       <!-- Slice section template -->
       <section v-for="(slice, index) in slices" :key="'slice-' + index">
         <!-- Text slice component -->
@@ -48,6 +35,7 @@
 <script>
 import Prismic from "prismic-javascript"
 import PrismicConfig from "~/prismic.config.js"
+
 // imports for all components
 import HeaderPrismic from '~/components/HeaderPrismic.vue'
 import TextSlice from '~/components/slices/TextSlice.vue'
@@ -57,7 +45,7 @@ import ImageGallery from '~/components/slices/ImageGallery.vue'
 import ImageHighlight from '~/components/slices/ImageHighlight.vue'
 
 export default {
-  name: 'Home',
+  name: 'page',
   components: {
     HeaderPrismic,
     TextSlice,
@@ -71,17 +59,14 @@ export default {
       title: 'Prismic Nuxt.js Multi Page Website',
     }
   },
-  async asyncData({context, error, req}) {
+  async asyncData({ params, error, req }) {
     try{
       const api = await Prismic.getApi(PrismicConfig.apiEndpoint, {req})
 
+      //Query to get post content
       let document = {}
-      const result = await api.getSingle('homepage')
+      const result = await api.getByUID("page", params.uid)
       document = result.data
-
-      let slices= document.page_content
-
-      let banner = document.homepage_banner[0]
 
       let menuContent = {}
       const menu = await api.getSingle('menu')
@@ -93,62 +78,16 @@ export default {
       if (process.client) window.prismic.setupEditButton()
 
       return {
-        //menu
-        menuContent,
-        menuLinks: menuContent.menu_links,
-        
-        //page content
         document,
         documentId: result.id,
-        image: banner.image.url,
-        title: banner.title,
-        tagline: banner.tagline,
-        button_link: banner.button_link,
-        button_label: banner.button_label,
-
-        //Set slices as variable
-        slices: document.page_content
+        slices: document.page_content,
+        menuContent,
+        menuLinks: menuContent.menu_links,
       }
     } catch (e) {
+      //returns error page
       error({ statusCode: 404, message: 'Page not found' })
     }
   },
 }
 </script>
-
-<style lang="sass" scoped>
-.homepage-banner
-  margin: -70px 0 80px
-  padding: 10em 0 8em
-  background-position: center center
-  background-size: cover
-  color: #ffffff
-  line-height: 1.75
-  text-align: center
-  /* background-image: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' + image.url + ')';
-
-.banner-content
-  text-align: center
-
-.banner-title, .banner-description
-  width: 90%
-  max-width: 490px
-  margin-left: auto
-  margin-right: auto
-
-.banner-title
-  color: #ffffff
-  font-size: 70px
-  font-weight: 900
-  line-height: 70px
-
-.banner-button
-  background: #ffffff
-  border-radius: 7px
-  color: #484D52
-  font-size: 14px
-  font-weight: 700
-  padding: 15px 40px
-  &:hover
-    background: #c8c9cb
-</style>

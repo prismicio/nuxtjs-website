@@ -1,5 +1,5 @@
 <template>
-  <div class="outer-container">
+  <div class="container">
     <p>Loading the Prismic's Preview...</p>
   </div>
 </template>
@@ -19,13 +19,3 @@ export default {
   },
 }
 </script>
-
-<style lang="sass" scoped>
-.outer-container
-  max-width: 700px
-  margin-left: auto
-  margin-right: auto
-  padding: 20px 0
-  text-align: center
-</style>
-

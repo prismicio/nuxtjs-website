@@ -1,7 +1,5 @@
 <template>
-  <div class='post-part single container'>
-    <prismic-rich-text :field="slice.primary.text"/>
-  </div>
+  <prismic-rich-text class="content-section" :class="'text-section-' + slice.slice_label" :field="slice.primary.rich_text"/>
 </template>
 
 <script>
@@ -12,57 +10,22 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.post-part.single
-  .image-full-width + .image-label
-    width: 100%
-  a
-    text-decoration: none
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0.8) 75%)
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0.8) 75%)
-    background-repeat: repeat-x
-    background-size: 2px 2px
-    background-position: 0 23px
+.text-section-2col
+  -webkit-column-count: 2
+  // Chrome, Safari, Opera
+  -moz-column-count: 2
+  // Firefox
+  column-count: 2
+  -webkit-column-gap: 40px
+  // Chrome, Safari, Opera
+  -moz-column-gap: 40px
+  // Firefox
+  column-gap: 40px
 
-.blog-main.single a
-  text-decoration: none
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0.8) 75%)
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0.8) 75%)
-  background-repeat: repeat-x
-  background-size: 2px 2px
-  background-position: 0 23px
+.text-section-1col img, .text-section-2col img, .gallery img
+  margin-bottom: 1rem
 
-.post-part
-  li
-    list-style-type: initial
-    margin-left: 1em
-  &.single img
-    width: 100%
-    height: auto
-
-@media (max-width: 767px)
-  .post-part, .blog-main
-    font-size: 18px
-  .post-part pre
-    font-size: 14px
-  h1
-    font-size: 36px
-    line-height: 45px
-  h2
-    font-size: 28px
-  h3
-    font-size: 18px
-
-/* vh vw fallback for ios7
-@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait)
-  .main .post-part.single .image-full-width
-    width: 768px
-
-@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape)
-  .main .post-part.single .image-full-width
-    width: 768px
-
-@media screen and (device-aspect-ratio: 40 / 71)
-  .main .post-part.single .image-full-width
-    width: 530px
+.text-section-1col p:last-child, .text-section-2col p:last-child
+  margin-bottom: 0
 </style>
 
