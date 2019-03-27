@@ -4,67 +4,27 @@
     <header-prismic :menuLinks="menuLinks"/>
     <!-- Button to edit document in dashboard -->
     <prismic-edit-button :documentId="documentId"/>
-    <section class="homepage-banner" :style="{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' + image + ')' }">
-      <!-- Template for page title. -->
-      <div class="banner-content container">
-        <h2 class="banner-title">
-          {{ $prismic.richTextAsPlain(title) }}
-        </h2>
-        <!-- Template for page tagline. -->
-        <p class="banner-description">{{ $prismic.richTextAsPlain(tagline) }}</p>
-        <prismic-link class="banner-button" :field="button_link">
-          {{ $prismic.richTextAsPlain(button_label) }}
-        </prismic-link>
-      </div>
-    </section>
-    <div class="container">
-      <!-- Slice section template -->
-      <section v-for="(slice, index) in slices" :key="'slice-' + index">
-        <!-- Text slice component -->
-        <template v-if="slice.slice_type === 'text_section'">
-          <text-slice :slice="slice"/>
-        </template>
-        <!-- Quote slice component -->
-        <template v-else-if="slice.slice_type === 'quote'">
-          <quote-slice :slice="slice"/>
-        </template>
-        <!-- Full Width Image slice component -->
-        <template v-else-if="slice.slice_type === 'full_width_image'">
-          <full-width-image :slice="slice"/>
-        </template>
-        <!-- Image Gallery slice component -->
-        <template v-else-if="slice.slice_type === 'image_gallery'">
-          <image-gallery :slice="slice"/>
-        </template>
-        <!-- Image Highlight slice component -->
-        <template v-else-if="slice.slice_type === 'image_highlight'">
-          <image-highlight :slice="slice"/>
-        </template>
-      </section>
-    </div>
+    <!-- Banner component -->
+    <homepage-banner :banner="banner"/>
+    <!-- Slices block component -->
+    <slices-block :slices="slices"/>
   </section>
 </template>
 
 <script>
 import Prismic from "prismic-javascript"
 import PrismicConfig from "~/prismic.config.js"
-// imports for all components
+// Imports for all components
 import HeaderPrismic from '~/components/HeaderPrismic.vue'
-import TextSlice from '~/components/slices/TextSlice.vue'
-import QuoteSlice from '~/components/slices/QuoteSlice.vue'
-import FullWidthImage from '~/components/slices/FullWidthImage.vue'
-import ImageGallery from '~/components/slices/ImageGallery.vue'
-import ImageHighlight from '~/components/slices/ImageHighlight.vue'
+import HomepageBanner from '~/components/HomepageBanner.vue'
+import SlicesBlock from '~/components/SlicesBlock.vue'
 
 export default {
   name: 'Home',
   components: {
     HeaderPrismic,
-    TextSlice,
-    QuoteSlice,
-    FullWidthImage,
-    ImageGallery,
-    ImageHighlight
+    HomepageBanner,
+    SlicesBlock,
   },
   head () {
     return {
@@ -73,41 +33,36 @@ export default {
   },
   async asyncData({context, error, req}) {
     try{
+      // Fetching the API object
       const api = await Prismic.getApi(PrismicConfig.apiEndpoint, {req})
 
+      // Query to get the home page content
       let document = {}
       const result = await api.getSingle('homepage')
       document = result.data
 
-      let slices= document.page_content
-
+      // Setting the banner as a variable
       let banner = document.homepage_banner[0]
 
+      // Query to get the menu content
       let menuContent = {}
       const menu = await api.getSingle('menu')
       menuContent = menu.data
-
-      let menulinks = menuContent.menu_links
 
       // Load the edit button
       if (process.client) window.prismic.setupEditButton()
 
       return {
-        //menu
-        menuContent,
-        menuLinks: menuContent.menu_links,
-        
-        //page content
+        // Page content
         document,
         documentId: result.id,
-        image: banner.image.url,
-        title: banner.title,
-        tagline: banner.tagline,
-        button_link: banner.button_link,
-        button_label: banner.button_label,
+        banner,
+        // Set slices as variable
+        slices: document.page_content,
 
-        //Set slices as variable
-        slices: document.page_content
+        // Menu
+        menuContent,
+        menuLinks: menuContent.menu_links
       }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
@@ -115,40 +70,3 @@ export default {
   },
 }
 </script>
-
-<style lang="sass" scoped>
-.homepage-banner
-  margin: -70px 0 80px
-  padding: 10em 0 8em
-  background-position: center center
-  background-size: cover
-  color: #ffffff
-  line-height: 1.75
-  text-align: center
-  /* background-image: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' + image.url + ')';
-
-.banner-content
-  text-align: center
-
-.banner-title, .banner-description
-  width: 90%
-  max-width: 490px
-  margin-left: auto
-  margin-right: auto
-
-.banner-title
-  color: #ffffff
-  font-size: 70px
-  font-weight: 900
-  line-height: 70px
-
-.banner-button
-  background: #ffffff
-  border-radius: 7px
-  color: #484D52
-  font-size: 14px
-  font-weight: 700
-  padding: 15px 40px
-  &:hover
-    background: #c8c9cb
-</style>

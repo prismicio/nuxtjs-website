@@ -121,3 +121,19 @@ img {
   color: white;
   font-size: 24px;
 }
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 26px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  ul {
+    padding-left: 20px;
+  }
+}

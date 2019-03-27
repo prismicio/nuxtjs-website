@@ -44,5 +44,11 @@ export default {
     margin-right: 10px
     vertical-align: -0.3em
     content: close-quote
+
+@media (max-width: 767px)
+  .content-section
+    margin-bottom: 2rem
+  .quote
+    font-size: 20px
 </style>
 

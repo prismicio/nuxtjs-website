@@ -46,9 +46,36 @@ export default {
     float: right
     ul
       margin: 0
+      padding-left: 0
     li
       display: inline-block
       margin-left: 40px
+
+@media (max-width: 1060px)
+  .site-header
+    padding-left: 20px
+    padding-right: 20px
+
+@media (max-width: 767px)
+  .site-header
+    height: auto
+
+  .homepage .site-header
+    position: absolute
+    left: 0
+    right: 0
+
+  .site-header
+    .logo
+      display: block
+      text-align: center
+    nav
+      float: none
+      text-align: center
+      li
+        display: inline-block
+        margin-left: 10px
+        margin-right: 10px
 </style>
 
 

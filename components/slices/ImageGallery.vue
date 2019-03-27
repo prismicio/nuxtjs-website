@@ -23,11 +23,11 @@ export default {
 <style lang="sass" scoped>
 .gallery
   display: -webkit-box
-  /* OLD - iOS 6-, Safari 3.1-6, BB7
+  // OLD - iOS 6-, Safari 3.1-6, BB7
   display: -ms-flexbox
-  /* TWEENER - IE 10
+  // TWEENER - IE 10
   display: -webkit-flex
-  /* NEW - Safari 6.1+. iOS 7.1+, BB10
+  // NEW - Safari 6.1+. iOS 7.1+, BB10
   display: flex
   -webkit-flex-wrap: wrap
   flex-wrap: wrap
@@ -44,4 +44,14 @@ export default {
 .gallery-link
   margin-top: -20px
   text-transform: uppercase
+
+@media (max-width: 767px)
+  .content-section
+    margin-bottom: 2rem
+  .gallery-item
+    -webkit-box-flex: 100%
+    -moz-box-flex: 100%
+    -webkit-flex: 100%
+    -ms-flex: 100%
+    flex: 100%
 </style>

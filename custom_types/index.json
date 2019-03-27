@@ -11,6 +11,6 @@
 }, {
   "id": "menu",
   "name": "Menu",
-  "repeatable": true,
+  "repeatable": false,
   "value": "menu.json"
 }]
