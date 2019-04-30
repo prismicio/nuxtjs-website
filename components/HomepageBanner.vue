@@ -30,7 +30,6 @@ export default {
   color: #ffffff
   line-height: 1.75
   text-align: center
-  // background-image: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' + image.url + ')';
 
 .banner-content
   text-align: center

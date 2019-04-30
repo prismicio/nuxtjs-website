@@ -28,11 +28,11 @@
 
 <script>
 // Imports for all slices
-import TextSlice from './slices/TextSlice.vue'
-import QuoteSlice from './slices/QuoteSlice.vue'
-import FullWidthImage from './slices/FullWidthImage.vue'
-import ImageGallery from './slices/ImageGallery.vue'
-import ImageHighlight from './slices/ImageHighlight.vue'
+const TextSlice = () => import("./slices/TextSlice.vue");
+const QuoteSlice = () => import("./slices/QuoteSlice.vue");
+const FullWidthImage = () => import("./slices/FullWidthImage.vue");
+const ImageGallery = () => import("./slices/ImageGallery.vue");
+const ImageHighlight = () => import("./slices/ImageHighlight.vue");
 
 export default {
   props: ['slices'],
