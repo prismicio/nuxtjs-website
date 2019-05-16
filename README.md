@@ -4,12 +4,10 @@
 
 ## Check out our article for a step by step guide to getting this project up and running
 
-> [Prismic project guide](https://prismic.io/docs/vuejs/getting-started/primsic-nuxt)
-
-Then you can access it at [http://localhost:3000](http://localhost:3000).
+> [Prismic project guide](https://user-guides.prismic.io/examples/nuxt-js-samples/nuxtjs-sample-multi-page-website-with-navigation)
 
 
-## How to launch this project in your local environment
+## Launch this project in your local environment
 
 Run the following commands:
 
@@ -17,16 +15,12 @@ Run the following commands:
 npm install
 npm run dev
 ```
+Then you can access it at [http://localhost:3000](http://localhost:3000).
 
-### Compiles and minifies for production and launches server
+## Compile and minify for production and launch the server
 ``` bash
 npm run build
 npm start
-```
-
-### generates static project
-``` bash
-nuxt generate
 ```
 
 ## Learn more about using Prismic with Nuxt.js
@@ -37,7 +31,7 @@ nuxt generate
 
 This software is licensed under the Apache 2 license, quoted below.
 
-Copyright 2013-2019 Prismic (http://prismic.io).
+Copyright 2019 Prismic (http://prismic.io).
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this project except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
 
