@@ -2,8 +2,6 @@
   <section class="homepage">
     <!-- Vue tag to add header component -->
     <header-prismic :menuLinks="menuLinks"/>
-    <!-- Button to edit document in dashboard -->
-    <prismic-edit-button :documentId="documentId"/>
     <!-- Banner component -->
     <homepage-banner :banner="banner"/>
     <!-- Slices block component -->
