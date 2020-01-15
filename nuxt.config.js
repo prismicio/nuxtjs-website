@@ -56,7 +56,6 @@ module.exports = {
   prismic: {
     endpoint: apiEndpoint,
     linkResolver,
-    preview: '/preview/',
   },
 
   /*
