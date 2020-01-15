@@ -58,10 +58,6 @@ module.exports = {
     linkResolver,
   },
 
-  generate: {
-    fallback: true
-  },
-
   /*
   ** Build configuration
   */
