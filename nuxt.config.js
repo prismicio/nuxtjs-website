@@ -1,6 +1,6 @@
 import { description, name } from './package';
 import { REPO_NAME, apiEndpoint } from './prismic.config';
-// import linkResolver from './plugins/link-resolver';
+import linkResolver from './plugins/link-resolver';
 
 module.exports = {
   mode: 'universal',
@@ -55,7 +55,7 @@ module.exports = {
 
   prismic: {
     endpoint: apiEndpoint,
-    // linkResolver,
+    linkResolver,
   },
 
   /*
