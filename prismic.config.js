@@ -1,5 +1,6 @@
-var api = {
-  apiEndpoint: "https://your-repo-name.cdn.prismic.io/api/v2",
-}
 
-module.exports = api;
+export const REPO_NAME = "sample-site";
+
+export const apiEndpoint = `https://${REPO_NAME}.cdn.prismic.io/api/v2`;
+
+export default { REPO_NAME, apiEndpoint };

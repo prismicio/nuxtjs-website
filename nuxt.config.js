@@ -1,6 +1,6 @@
-const pkg = require('./package');
-const PrismicConfig = require('./prismic.config');
-const linkResolver = require('./plugins/link-resolver').default;
+import { description, name } from './package';
+import { REPO_NAME, apiEndpoint } from './prismic.config';
+import linkResolver from './plugins/link-resolver';
 
 module.exports = {
   mode: 'universal',
@@ -9,11 +9,11 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: name,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: description }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -22,7 +22,7 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' }
     ],
     script: [
-      { src: "https://static.cdn.prismic.io/prismic.min.js?new=true" }
+      { src: `https://static.cdn.prismic.io/prismic.min.js?repo=${REPO_NAME}&new=true` }
     ],
     __dangerouslyDisableSanitizers: ['script'],
   },
@@ -54,7 +54,7 @@ module.exports = {
   ],
 
   prismic: {
-    endpoint: PrismicConfig.apiEndpoint,
+    endpoint: apiEndpoint,
     linkResolver,
   },
 
