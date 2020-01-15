@@ -56,10 +56,7 @@ module.exports = {
   prismic: {
     endpoint: apiEndpoint,
     linkResolver,
-  },
-
-  generate: {
-    fallback: true
+    preview: '/preview/',
   },
 
   /*
