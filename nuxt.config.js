@@ -1,5 +1,6 @@
-const pkg = require('./package')
-const PrismicConfig = require('./prismic.config')
+const pkg = require('./package');
+const PrismicConfig = require('./prismic.config');
+const linkResolver = require('./plugins/link-resolver').default;
 
 module.exports = {
   mode: 'universal',
@@ -21,8 +22,7 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' }
     ],
     script: [
-      { innerHTML: '{ window.prismic = { endpoint: "' + PrismicConfig.apiEndpoint + '"} }' },
-      { src: '//static.cdn.prismic.io/prismic.min.js' }
+      { src: "https://static.cdn.prismic.io/prismic.min.js?new=true" }
     ],
     __dangerouslyDisableSanitizers: ['script'],
   },
@@ -44,16 +44,19 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/link-resolver.js',
-    '~/plugins/html-serializer.js',
-    '~/plugins/prismic-vue.js',
   ],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/prismic'
   ],
+
+  prismic: {
+    endpoint: PrismicConfig.apiEndpoint,
+    linkResolver,
+  },
 
   /*
   ** Build configuration
