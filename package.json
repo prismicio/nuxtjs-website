@@ -16,7 +16,7 @@
     "cookies": "^0.7.3",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
-    "nuxt": "^2.8.1",
+    "nuxt": "^2.11.0",
     "prismic-javascript": "^2.1.5",
     "prismic-vue": "^2.0.0"
   },
