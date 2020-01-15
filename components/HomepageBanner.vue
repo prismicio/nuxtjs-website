@@ -3,12 +3,12 @@
       <!-- Template for page title. -->
       <div class="banner-content container">
         <h2 class="banner-title">
-          {{ $prismic.richTextAsPlain(banner.title) }}
+          {{ $prismic.asText(banner.title) }}
         </h2>
         <!-- Template for page tagline. -->
-        <p class="banner-description">{{ $prismic.richTextAsPlain(banner.tagline) }}</p>
+        <p class="banner-description">{{ $prismic.asText(banner.tagline) }}</p>
         <prismic-link class="banner-button" :field="banner.button_link">
-          {{ $prismic.richTextAsPlain(banner.button_label) }}
+          {{ $prismic.asText(banner.button_label) }}
         </prismic-link>
       </div>
     </section>

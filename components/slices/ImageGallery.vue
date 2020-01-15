@@ -6,7 +6,7 @@
         <prismic-image :field="item.image"/>
         <prismic-rich-text :field="item.image_description"/>
         <p>
-          <prismic-link :field="item.link" class="gallery-link">{{ $prismic.richTextAsPlain(item.link_label) }}</prismic-link>
+          <prismic-link :field="item.link" class="gallery-link">{{ $prismic.asText(item.link_label) }}</prismic-link>
         </p>
       </div>
     </div>

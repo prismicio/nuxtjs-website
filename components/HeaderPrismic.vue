@@ -4,7 +4,7 @@
     <nav>
       <ul>
         <li v-for="menuLink in menuLinks" :key="menuLink.id">
-          <prismic-link :field="menuLink.link">{{ $prismic.richTextAsPlain(menuLink.label) }}</prismic-link>
+          <prismic-link :field="menuLink.link">{{ $prismic.asText(menuLink.label) }}</prismic-link>
         </li>
       </ul>
     </nav>
