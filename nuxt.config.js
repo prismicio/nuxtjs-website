@@ -1,6 +1,10 @@
 import { description, name } from './package';
-import { REPO_NAME, apiEndpoint } from './prismic.config';
+import { apiEndpoint } from './prismic.config';
 import linkResolver from './plugins/link-resolver';
+
+
+const regexForRepoName = /([^\/]+)\.(?:cdn\.)prismic\.io\/api/
+const REPO_NAME = regexForRepoName.exec(apiEndpoint)[1]
 
 module.exports = {
   mode: 'universal',
