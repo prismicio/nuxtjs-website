@@ -59,10 +59,7 @@ module.exports = {
 
   prismic: {
     endpoint: apiEndpoint,
-    linkResolver,
-    generate: {
-      fallback: '404.html'
-    }
+    linkResolver
   },
 
   /*
@@ -75,5 +72,9 @@ module.exports = {
     extend(config, ctx) {
       config.resolve.alias['vue'] = 'vue/dist/vue.common'
     }
+  },
+
+  generate: {
+    fallback: '404.html'
   }
 }
