@@ -60,6 +60,9 @@ module.exports = {
   prismic: {
     endpoint: apiEndpoint,
     linkResolver,
+    generate: {
+      fallback: '404.html'
+    }
   },
 
   /*
