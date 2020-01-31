@@ -12,11 +12,13 @@
 
 <script>
 import HeaderPrismic from '../components/HeaderPrismic.vue'
+import FooterPrismic from '~/components/FooterPrismic.vue'
 
 export default {
   name: 'NotFound',
   components: {
-    HeaderPrismic
+    HeaderPrismic,
+    FooterPrismic
   }
 }
 </script>

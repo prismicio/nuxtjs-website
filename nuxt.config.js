@@ -1,34 +1,22 @@
-import { description, name } from './package';
-import { apiEndpoint } from './prismic.config';
-import linkResolver from './plugins/link-resolver';
-
-
-const regexForRepoName = /([^\/]+)\.(?:cdn\.)prismic\.io\/api/
-const REPO_NAME = regexForRepoName.exec(apiEndpoint)[1]
-
-module.exports = {
+export default {
   mode: 'universal',
 
   /*
   ** Headers of the page
   */
   head: {
-    title: name,
+    title: 'Nuxt + Prismic',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: description }
+      { hid: 'description', name: 'description', content: 'Nuxt + Prismic showcase' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' }
-    ],
-    script: [
-      { src: `https://static.cdn.prismic.io/prismic.min.js?repo=${REPO_NAME}&new=true` }
-    ],
-    __dangerouslyDisableSanitizers: ['script'],
+    ]
   },
 
   /*
@@ -54,12 +42,17 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
+    // mofules for full static before `nuxt export` (coming in v2.12)
+    '@/modules/static',
+    '@/modules/crawler',
+    // https://prismic-nuxt.js.org/
     '@nuxtjs/prismic'
   ],
 
   prismic: {
-    endpoint: apiEndpoint,
-    linkResolver
+    endpoint: 'https://sample-site.cdn.prismic.io/api/v2',
+    linkResolver: '@/plugins/link-resolver',
+    htmlSerializer: '@/plugins/html-serializer',
   },
 
   /*
@@ -70,11 +63,12 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
+      // to transform link with <nuxt-link> for the htmlSerializer
       config.resolve.alias['vue'] = 'vue/dist/vue.common'
     }
   },
 
   generate: {
-    fallback: '404.html'
+    fallback: '404.html' // Netlify reads a 404.html, Nuxt will load as an SPA
   }
 }

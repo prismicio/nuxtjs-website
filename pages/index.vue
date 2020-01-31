@@ -1,7 +1,7 @@
 <template>
   <section class="homepage">
     <!-- Vue tag to add header component -->
-    <header-prismic :menuLinks="menuLinks"/>
+    <header-prismic/>
     <!-- Banner component -->
     <homepage-banner :banner="banner"/>
     <!-- Slices block component -->
@@ -10,8 +10,6 @@
 </template>
 
 <script>
-import Prismic from "prismic-javascript"
-import PrismicConfig from "~/prismic.config.js"
 // Imports for all components
 import HeaderPrismic from '~/components/HeaderPrismic.vue'
 import HomepageBanner from '~/components/HomepageBanner.vue'
@@ -29,35 +27,16 @@ export default {
       title: 'Prismic Nuxt.js Multi Page Website',
     }
   },
-  async asyncData({context, error, req}) {
+  async asyncData({ $prismic, error }) {
     try{
-      // Fetching the API object
-      const api = await Prismic.getApi(PrismicConfig.apiEndpoint, {req})
-
       // Query to get the home page content
-      let document = {}
-      const result = await api.getSingle('homepage')
-      document = result.data
-
-      // Setting the banner as a variable
-      let banner = document.homepage_banner[0]
-
-      // Query to get the menu content
-      let menuContent = {}
-      const menu = await api.getSingle('menu')
-      menuContent = menu.data
+      const homepage = (await $prismic.api.getSingle('homepage')).data
 
       return {
         // Page content
-        document,
-        documentId: result.id,
-        banner,
+        banner: homepage.homepage_banner[0],
         // Set slices as variable
-        slices: document.page_content,
-
-        // Menu
-        menuContent,
-        menuLinks: menuContent.menu_links
+        slices: homepage.page_content
       }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })

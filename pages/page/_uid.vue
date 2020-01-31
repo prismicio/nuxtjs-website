@@ -1,15 +1,13 @@
 <template>
   <section class="page">
     <!-- Vue tag to add header component -->
-    <header-prismic :menuLinks="menuLinks"/>
+    <header-prismic/>
     <!-- Slices block component -->
     <slices-block :slices="slices"/>
   </section>
 </template>
 
 <script>
-import Prismic from "prismic-javascript"
-import PrismicConfig from "~/prismic.config.js"
 // Imports for all components
 import HeaderPrismic from '~/components/HeaderPrismic.vue'
 import SlicesBlock from '~/components/SlicesBlock.vue'
@@ -25,32 +23,14 @@ export default {
       title: 'Prismic Nuxt.js Multi Page Website',
     }
   },
-  async asyncData({ params, error, req }) {
+  async asyncData({ $prismic, params, error }) {
     try{
-      // Fetching the API object
-      const api = await Prismic.getApi(PrismicConfig.apiEndpoint, {req})
-
       // Query to get post content
-      let document = {}
-      const result = await api.getByUID("page", params.uid)
-      document = result.data
-
-      // Query to get the menu content
-      let menuContent = {}
-      const menu = await api.getSingle('menu')
-      menuContent = menu.data
+      const document = (await $prismic.api.getByUID('page', params.uid)).data
 
       return {
-        // Post content
-        document,
-        documentId: result.id,
-
         // Set slices as variable
-        slices: document.page_content,
-
-        // Menu
-        menuContent,
-        menuLinks: menuContent.menu_links
+        slices: document.page_content
       }
     } catch (e) {
       // Returns error page

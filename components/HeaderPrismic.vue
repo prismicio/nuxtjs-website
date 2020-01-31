@@ -1,9 +1,9 @@
 <template>
   <header class="site-header">
-    <nuxt-link to="/" class="logo">Example Site</nuxt-link>
+    <nuxt-link to="/" class="logo">{{ $prismic.asText($store.state.menu.title) }}</nuxt-link>
     <nav>
       <ul>
-        <li v-for="menuLink in menuLinks" :key="menuLink.id">
+        <li v-for="menuLink in $store.state.menu.menu_links" :key="menuLink.id">
           <prismic-link :field="menuLink.link">{{ $prismic.asText(menuLink.label) }}</prismic-link>
         </li>
       </ul>
@@ -13,7 +13,6 @@
 
 <script>
 export default {
-  props: ['menuLinks'],
   name: 'header-prismic',
 }
 </script>
