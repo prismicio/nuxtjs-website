@@ -1,5 +1,6 @@
 <template>
   <header class="site-header">
+    <p v-if="$store.state.menu === 'Please create a menu document'" class="logo">{{ $store.state.menu }}</p>
     <nuxt-link to="/" class="logo">{{ $prismic.asText($store.state.menu.title) }}</nuxt-link>
     <nav>
       <ul>

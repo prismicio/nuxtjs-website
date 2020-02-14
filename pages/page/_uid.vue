@@ -1,22 +1,18 @@
 <template>
-  <section class="page">
-    <!-- Vue tag to add header component -->
-    <header-prismic/>
+  <section>
     <!-- Slices block component -->
     <slices-block :slices="slices"/>
   </section>
 </template>
 
 <script>
-// Imports for all components
-import HeaderPrismic from '~/components/HeaderPrismic.vue'
+// Imports for Prismic Slice components
 import SlicesBlock from '~/components/SlicesBlock.vue'
 
 export default {
   name: 'page',
   components: {
-    HeaderPrismic,
-    SlicesBlock,
+    SlicesBlock
   },
   head () {
     return {

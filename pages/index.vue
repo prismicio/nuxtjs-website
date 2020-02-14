@@ -1,7 +1,5 @@
 <template>
-  <section class="homepage">
-    <!-- Vue tag to add header component -->
-    <header-prismic/>
+  <section>
     <!-- Banner component -->
     <homepage-banner :banner="banner"/>
     <!-- Slices block component -->
@@ -11,16 +9,15 @@
 
 <script>
 // Imports for all components
-import HeaderPrismic from '~/components/HeaderPrismic.vue'
 import HomepageBanner from '~/components/HomepageBanner.vue'
 import SlicesBlock from '~/components/SlicesBlock.vue'
 
 export default {
   name: 'Home',
+  layout: 'homepage',
   components: {
-    HeaderPrismic,
     HomepageBanner,
-    SlicesBlock,
+    SlicesBlock
   },
   head () {
     return {
