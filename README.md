@@ -1,6 +1,6 @@
 # Prismic Nuxt.js Multi-page website example
 
-> [Nuxt.js](https://nuxtjs.org) example blog project with content managed in [Prismic](https://prismic.io)
+> [Nuxt.js](https://nuxtjs.org) example multi-page website project with content managed in [Prismic](https://prismic.io)
 
 ## Check out our article for a step by step guide to getting this project up and running
 
