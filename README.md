@@ -6,21 +6,23 @@
 
 > [Prismic project guide](https://user-guides.prismic.io/examples/nuxt-js-samples/nuxtjs-sample-multi-page-website-with-navigation)
 
-
 ## Launch this project in your local environment
 
 Run the following commands:
 
-``` bash
+```bash
 npm install
 npm run dev
 ```
+
 Then you can access it at [http://localhost:3000](http://localhost:3000).
 
-## Compile and minify for production and launch the server
-``` bash
-npm run build
-npm start
+## Deploying the project to production
+
+When you deploy on your static hosting provider (like Netlify, Vercel, or Heroku), this is your build command:
+
+```
+npm run generate
 ```
 
 ## Learn more about using Prismic with Nuxt.js
