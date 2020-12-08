@@ -1,0 +1,27 @@
+{
+  "id": "full_image_caption",
+  "type": "SharedSlice",
+  "name": "FullImageCaption",
+  "description": "FullImageCaption",
+  "variations": [
+    {
+      "id": "default-slice",
+      "name": "Default slice",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "FullImageCaption",
+      "primary": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "id": "image",
+            "label": "",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

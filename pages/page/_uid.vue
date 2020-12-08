@@ -1,37 +1,25 @@
 <template>
   <section>
     <!-- Slices block component -->
-    <slices-block :slices="slices"/>
+    <div class="container">
+      <slice-zone type="page" :uid="$route.params.uid" />
+    </div>
   </section>
 </template>
 
 <script>
 // Imports for Prismic Slice components
-import SlicesBlock from '~/components/SlicesBlock.vue'
+import SliceZone from "vue-slicezone";
 
 export default {
-  name: 'page',
+  name: "page",
   components: {
-    SlicesBlock
+    SliceZone
   },
-  head () {
+  head() {
     return {
-      title: 'Prismic Nuxt.js Multi Page Website',
-    }
-  },
-  async asyncData({ $prismic, params, error }) {
-    try{
-      // Query to get post content
-      const document = (await $prismic.api.getByUID('page', params.uid)).data
-
-      return {
-        // Set slices as variable
-        slices: document.page_content
-      }
-    } catch (e) {
-      // Returns error page
-      error({ statusCode: 404, message: 'Page not found' })
-    }
-  },
-}
+      title: "Prismic Nuxt.js Multi Page Website"
+    };
+  }
+};
 </script>

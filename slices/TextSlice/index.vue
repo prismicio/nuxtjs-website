@@ -1,11 +1,20 @@
 <template>
-  <prismic-rich-text class="content-section" :class="'text-section-' + slice.slice_label" :field="slice.primary.rich_text"/>
+  <section>
+    <prismic-rich-text class="content-section" :class="'text-section-' + slice.slice_label" :field="slice.primary.richtext"/>
+  </section>
 </template>
 
 <script>
 export default {
-  props: ['slice'],
-  name: 'text-slice'
+  props: {
+    slice: {
+      type: Object,
+      required: true,
+      default() {
+        return {}
+      }
+    }
+  },
 }
 </script>
 
@@ -33,4 +42,3 @@ export default {
     -moz-column-gap: 40px
     column-gap: 40px
 </style>
-

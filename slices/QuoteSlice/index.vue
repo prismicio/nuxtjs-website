@@ -1,16 +1,21 @@
 <template>
   <section class='content-section quote'>
-    <blockquote class="block-quotation">{{ $prismic.asText(slice.primary.quote_text) }}</blockquote>
+    <blockquote class="block-quotation">{{ $prismic.asText(slice.primary.quotetext) }}</blockquote>
   </section>
 </template>
-
 <script>
 export default {
-  props: ['slice'],
-  name: 'quote-slice'
+  props: {
+    slice: {
+      type: Object,
+      required: true,
+      default() {
+        return {}
+      }
+    }
+  },
 }
 </script>
-
 <style lang="sass" scoped>
 .quote blockquote
   display: block
@@ -51,4 +56,3 @@ export default {
   .quote
     font-size: 20px
 </style>
-

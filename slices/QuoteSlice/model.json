@@ -1,0 +1,28 @@
+{
+  "id": "quote_slice",
+  "type": "SharedSlice",
+  "name": "QuoteSlice",
+  "description": "QuoteSlice",
+  "variations": [
+    {
+      "id": "default-slice",
+      "name": "Default slice",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "QuoteSlice",
+      "primary": {
+        "quotetext": {
+          "type": "StructuredText",
+          "config": {
+            "label": "",
+            "id": "quotetext",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,rtl"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

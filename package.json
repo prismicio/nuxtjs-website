@@ -1,7 +1,7 @@
 {
   "name": "nuxt-website",
-  "version": "1.0.0",
-  "description": "A multi page website with navigation menu built for Nuxt and Prismic",
+  "version": "2.0.0",
+  "description": "A multi page website with navigation menu built for Nuxt.js, Slicemachine and Prismic",
   "author": "Phil Snow",
   "private": true,
   "scripts": {
@@ -9,19 +9,28 @@
     "build": "nuxt build",
     "start": "cross-env NODE_ENV=production node server/index.js",
     "generate": "nuxt generate",
-    "heroku-postbuild": "npm run build"
+    "storybook": "nuxt storybook",
+    "build-storybook": "nuxt storybook build",
+    "slicemachine": "start-slicemachine --port 9999"
   },
   "dependencies": {
     "@nuxtjs/prismic": "^1.2.4",
+    "@prismicio/vue": "^2.0.7",
     "cookies": "^0.8.0",
-    "nuxt": "^2.14.6",
-    "prismic-javascript": "^2.7.1",
-    "prismic-vue": "^2.0.1"
+    "nuxt": "^2.14.7",
+    "nuxt-sm": "0.0.6",
+    "prismic-javascript": "^3.0.2",
+    "vue-essential-slices": "^0.2.0",
+    "vue-slicezone": "0.0.28"
   },
   "devDependencies": {
-    "node-sass": "^4.14.1",
-    "nodemon": "^2.0.2",
-    "sass-loader": "^8.0.2",
-    "webpack": "^4.41.5"
+    "@babel/runtime-corejs3": "^7.12.5",
+    "@nuxtjs/storybook": "^3.2.0",
+    "core-js": "3",
+    "node-sass": "^5.0.0",
+    "nodemon": "^2.0.6",
+    "sass-loader": "^10.1.0",
+    "slice-machine-ui": "0.0.42",
+    "webpack": "^4.44.2"
   }
 }

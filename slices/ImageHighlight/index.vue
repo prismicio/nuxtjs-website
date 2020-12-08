@@ -4,19 +4,26 @@
       <prismic-rich-text :field="slice.primary.title"/>
       <prismic-rich-text :field="slice.primary.headline"/>
       <p>
-        <prismic-link :field="slice.primary.link">{{ $prismic.asText(slice.primary.link_label) }}</prismic-link>
+        <prismic-link :field="slice.primary.link">{{ slice.primary.linkLabel }}</prismic-link>
       </p>
     </div>
     <div class="highlight-right">
-      <prismic-image :field="slice.primary.featured_image"/>
+      <prismic-image :field="slice.primary.featuredImage"/>
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  props: ['slice'],
-  name: 'image-highlight'
+  props: {
+    slice: {
+      type: Object,
+      required: true,
+      default() {
+        return {}
+      }
+    }
+  },
 }
 </script>
 
@@ -40,4 +47,3 @@ export default {
     width: 100%
     float: none
 </style>
-

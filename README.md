@@ -1,33 +1,14 @@
-# Prismic Nuxt.js Multi-page website example
+# Prismic Nuxt.js & Slicemachine Multi-page website example
 
 > [Nuxt.js](https://nuxtjs.org) example multi-page website project with content managed in [Prismic](https://prismic.io)
 
 ## Check out our article for a step by step guide to getting this project up and running
 
-> [Prismic project guide](https://user-guides.prismic.io/examples/nuxt-js-samples/nuxtjs-sample-multi-page-website-with-navigation)
+> [Prismic project guide](https://prismic.io/docs/technologies/sample-multi-page-website-with-navigation-nuxtjs)
 
-## Launch this project in your local environment
+## Learn more about using Prismic & Slicemachine with Nuxt.js
 
-Run the following commands:
-
-```bash
-npm install
-npm run dev
-```
-
-Then you can access it at [http://localhost:3000](http://localhost:3000).
-
-## Deploying the project to production
-
-When you deploy on your static hosting provider (like Netlify, Vercel, or Heroku), this is your build command:
-
-```
-npm run generate
-```
-
-## Learn more about using Prismic with Nuxt.js
-
-> [Prismic Nuxt.js Documentation](https://prismic.io/docs/vuejs/beyond-the-api/primsic-nuxt)
+> [Prismic Nuxt.js Documentation](https://prismic.io/docs/technologies/getting-started-nuxtjs)
 
 ## License
 
