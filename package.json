@@ -30,5 +30,9 @@
     "sass-loader": "^10.1.0",
     "slice-machine-ui": "0.0.42",
     "webpack": "^4.44.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prismicio/nuxtjs-website"
   }
 }
