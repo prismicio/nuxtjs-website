@@ -22,6 +22,7 @@ prismic theme --theme-url https://github.com/prismicio/nuxtjs-website --conf sm.
 ```
 npm run dev
 ```
+Then you can access it at http://localhost:3000.
 
 ### Deploys made easy with Netlify
 Sign up to [Netlify](https://www.netlify.com/) and follow the [deployment documentation](https://www.netlify.com/tags/deploy/) to quickly deploy your project.
