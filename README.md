@@ -22,6 +22,10 @@ prismic theme --theme-url https://github.com/prismicio/nuxtjs-website --conf sm.
 ```
 npm run dev
 ```
+
+### Deploys made easy with Netlify
+Sign up to [Netlify](https://www.netlify.com/) and follow the [deployment documentation](https://www.netlify.com/tags/deploy/) to quickly deploy your project.
+
 ## Learn more about using Prismic & Slicemachine with Nuxt.js
 
 > [Prismic Nuxt.js Documentation](https://prismic.io/docs/technologies/getting-started-nuxtjs)
