@@ -1,31 +1,11 @@
-# Prismic NuxtJS & Slicemachine Multi-page website example
+# Prismic Nuxt.js & Slicemachine Multi-page website example
 
-> [NuxtJS](https://nuxtjs.org) example multi-page website project with content managed in [Prismic](https://prismic.io)
+> [Nuxt.js](https://nuxtjs.org) example multi-page website project with content managed in [Prismic](https://prismic.io)
 
 ## Check out the dedicated article to get this project up and running
 
-> [Prismic project guide](https://prismic.io/docs/technologies/sample-multi-page-website-with-navigation-nuxtjs)
+> [Prismic project guide](https://prismic.io/docs/technologies/run-a-pre-configured-project-nuxtjs)
 
-### 1. Install the prismic-cli
-```
-npm install -g prismic-cli
-```
-
-### 2. Run the theme command
-This will create a new Prismic content repository, setup the custom types, and install the project code
-
-```
-prismic theme --theme-url https://github.com/prismicio/nuxtjs-website --conf sm.json
-```
-
-### 3. Run the project
-```
-npm run dev
-```
-Then you can access it at http://localhost:3000.
-
-### Deploys made easy with Netlify
-Sign up to [Netlify](https://www.netlify.com/) and follow the [deployment documentation](https://www.netlify.com/tags/deploy/) to quickly deploy your project.
 
 ## Learn more about using Prismic & Slicemachine with Nuxt.js
 
