@@ -1,9 +1,7 @@
 {
-  "name": "nuxt-website",
-  "version": "2.0.0",
-  "description": "A multi page website with navigation menu built for Nuxt.js, Slicemachine and Prismic",
-  "author": "Phil Snow",
-  "private": true,
+  "name": "nuxtjs-website",
+  "description": "Sample website built with Nuxt.js using Prismic headless CMS",
+  "author": "Prismic",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -32,5 +30,9 @@
     "sass-loader": "^10.1.0",
     "slice-machine-ui": "0.0.42",
     "webpack": "^4.44.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prismicio/nuxtjs-website"
   }
 }

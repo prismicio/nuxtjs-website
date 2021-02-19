@@ -2,9 +2,10 @@
 
 > [Nuxt.js](https://nuxtjs.org) example multi-page website project with content managed in [Prismic](https://prismic.io)
 
-## Check out our article for a step by step guide to getting this project up and running
+## Check out the dedicated article to get this project up and running
 
-> [Prismic project guide](https://prismic.io/docs/technologies/sample-multi-page-website-with-navigation-nuxtjs)
+> [Prismic project guide](https://prismic.io/docs/technologies/run-a-pre-configured-project-nuxtjs)
+
 
 ## Learn more about using Prismic & Slicemachine with Nuxt.js
 
@@ -14,7 +15,7 @@
 
 This software is licensed under the Apache 2 license, quoted below.
 
-Copyright 2019 Prismic (http://prismic.io).
+Copyright 2021 [Prismic](http://prismic.io).
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this project except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
 
