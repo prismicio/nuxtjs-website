@@ -12,12 +12,10 @@
     "slicemachine": "start-slicemachine --port 9999"
   },
   "dependencies": {
-    "@nuxtjs/prismic": "^1.2.4",
-    "@prismicio/vue": "^2.0.7",
+    "@nuxtjs/prismic": "^1.2.6",
     "cookies": "^0.8.0",
     "nuxt": "^2.14.7",
     "nuxt-sm": "0.0.6",
-    "prismic-javascript": "^3.0.2",
     "vue-essential-slices": "^0.2.0",
     "vue-slicezone": "0.0.28"
   },
