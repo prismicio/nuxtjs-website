@@ -58,7 +58,7 @@ export default {
   ],
 
   prismic: {
-    endpoint: "https://your-repo-name.cdn.prismic.io/api/v2"
+    endpoint: "https://sample-site.cdn.prismic.io/api/v2"
   },
 
   /*
